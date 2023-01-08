@@ -1,7 +1,9 @@
 import styled, { keyframes } from "styled-components";
+import { colors } from "src/configs/theme";
 
 type loaderContainerPropsType = {
   size: number;
+  color?: string;
 };
 
 const rotationAnimation = keyframes`
@@ -16,14 +18,16 @@ const rotationAnimation = keyframes`
 `;
 
 export const LoaderComponent = styled.div`
-  ${({ size }: loaderContainerPropsType) => `
-    width: ${size}px;
-    height: ${size}px;
-  `}
+  display: inline-block;
   border-radius: 50%;
   border: 5px solid transparent;
-  border-top-color: black;
-  border-left-color: black;
+  ${({ size, color }: loaderContainerPropsType) => `
+    width: ${size}px;
+    height: ${size}px;
+    border-top-color: ${color || colors.black};
+    border-left-color: ${color || colors.black};
+  `}
+
   animation: 1s ${rotationAnimation} linear infinte;
   -webkit-animation: 1s ${rotationAnimation} linear infinite;
 `;

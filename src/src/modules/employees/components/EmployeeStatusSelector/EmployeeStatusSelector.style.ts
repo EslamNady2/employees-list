@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { colors } from "src/configs/themeData";
+import { colors } from "src/configs/theme";
 
 export const StatusItemsContainer = styled.div`
   display: flex;
   align-items: center;
+  border: 1px solid ${colors.mainGrey};
 
   ${({ disabled }: { disabled: boolean }) =>
     disabled &&
@@ -34,10 +35,10 @@ export const StatusItemButton = styled.button`
   &::after {
     content: "";
     position: absolute;
-    pointer-events: none;
-    border: 25px solid transparent;
     left: 100%;
     top: 0;
+    pointer-events: none;
+    border: 25px solid transparent;
     border-left-color: ${({ active }: { active: boolean }) =>
       active ? colors.mainBlue : "transparent"};
     z-index: 1;

@@ -1,5 +1,5 @@
 import employeesActionTypes from "./action-types";
-import { employeesArrayType, updateEmployeePayloadType } from "./dataTypes";
+import { employeesArrayType, updateEmployeePayloadType, employeeType } from "./dataTypes";
 
 export const fetchEmployees = () => ({
   type: employeesActionTypes.FETCH_EMPLOYEES,
@@ -31,4 +31,18 @@ export const updateEmployeeStatusFail = (
 ) => ({
   type: employeesActionTypes.UPDATE_EMPLOYEE_STATUS_FAIL,
   payload,
+});
+
+export const addEmployee = (payload: {name: string}) => ({
+  type: employeesActionTypes.Add_EMPLOYEE,
+  payload,
+});
+
+export const addEmployeeSuccess = (payload: employeeType) => ({
+  type: employeesActionTypes.Add_EMPLOYEE_SUCCESS,
+  payload,
+});
+
+export const addEmployeeFail = () => ({
+  type: employeesActionTypes.Add_EMPLOYEE_FAIL,
 });

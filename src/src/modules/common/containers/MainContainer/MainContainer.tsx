@@ -6,7 +6,7 @@ const MainContainer = () => (
   <AppContainer>
     <GlobalStyle />
     
-    {/* there should be a router here but i preferred to render the EmployeesListView component for simplicity  */}
+    {/* there should be a router here but I preferred to just render the EmployeesListView component for simplicity  */}
     <EmployeesListView />
   </AppContainer>
 );

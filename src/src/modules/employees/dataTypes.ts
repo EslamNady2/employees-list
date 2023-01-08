@@ -16,7 +16,13 @@ export type employeeType = {
 
 export type employeesArrayType = employeeType[];
 
-export type updateEmployeePayloadType={
+export type employeeListStoreType = {
+  status: requestStatusType;
+  addingStatus?: requestStatusType;
+  data: employeeType[];
+};
+
+export type updateEmployeePayloadType = {
   id: number;
   status: employeeStatusType;
-}
+};

@@ -7,7 +7,12 @@ import { fetchEmployees } from "src/modules/employees/actions";
 import { rootStateType } from "src/redux/stateType";
 import { status } from "src/constants/general";
 
-import { PageContainer, LoaderContainer } from "./EmployeeListContainer.style";
+import {
+  PageContainer,
+  LoaderContainer,
+  SectionsDivider,
+} from "./EmployeeListContainer.style";
+import AddEmployeeForm from "../../components/AddEmployeeForm";
 
 const EmployeeListContainer = () => {
   const dispatch = useDispatch();
@@ -29,6 +34,8 @@ const EmployeeListContainer = () => {
 
   const renderContainerContent = () => (
     <>
+      <AddEmployeeForm />
+      <SectionsDivider />
       <EmployeesList />
     </>
   );

@@ -53,7 +53,7 @@ const employeesReducer = (
     }
 
     case employeesActionTypes.UPDATE_EMPLOYEE_STATUS_SUCCESS: {
-       // add submitting data status to employee object inside employees array
+      // add submitting data status to employee object inside employees array
       const employeesArray = state.employeesList.data.map((employee) => {
         // match employee id with the employee id in the response update response
         // then add the new employee status to current employee data
@@ -72,14 +72,14 @@ const employeesReducer = (
     }
 
     case employeesActionTypes.UPDATE_EMPLOYEE_STATUS_FAIL: {
-       // add submitting data status to employee object inside employees array
+      // add submitting data status to employee object inside employees array
       const employeesArray = state.employeesList.data.map((employee) => {
         if (employee.id === payload.id) {
           return { ...employee, submittingStatus: status.FAIL };
         }
         return employee;
       });
-      
+
       return {
         ...state,
         employeesList: {
@@ -88,6 +88,34 @@ const employeesReducer = (
         },
       };
     }
+
+    case employeesActionTypes.Add_EMPLOYEE:
+      return {
+        ...state,
+        employeesList: {
+          ...state.employeesList,
+          addingStatus: status.SUBMITTING,
+        },
+      };
+
+    case employeesActionTypes.Add_EMPLOYEE_SUCCESS:
+      return {
+        ...state,
+        employeesList: {
+          ...state.employeesList,
+          addingStatus: status.SUCCESS,
+          data: [...state.employeesList.data, payload],
+        },
+      };
+
+    case employeesActionTypes.Add_EMPLOYEE_FAIL:
+      return {
+        ...state,
+        employeesList: {
+          ...state.employeesList,
+          addingStatus: status.FAIL,
+        },
+      };
 
     default:
       return state;

@@ -14,7 +14,6 @@ import {
   StatusItemButton,
 } from "./EmployeeStatusSelector.style";
 
-
 type EmployeeStatusSelectorPropsType = {
   value: employeeStatusType;
   employee: employeeType;
@@ -36,7 +35,7 @@ const EmployeeStatusSelector = ({
   return (
     <StatusItemsContainer disabled={isSelectorDisabled}>
       {employeeStatuses.map((employeeStatus) => (
-        <StatusItemButtonWrapper>
+        <StatusItemButtonWrapper key={employeeStatus}>
           <StatusItemButton
             active={value === employeeStatus}
             key={employeeStatus}

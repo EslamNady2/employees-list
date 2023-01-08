@@ -4,6 +4,7 @@ const urls = {
   employeesUrls: {
     getEmployees: `${baseUrls}/employees`,
     updateEmployee: `${baseUrls}/employees`,
+    addEmployee: `${baseUrls}/employees`,
   },
 };
 

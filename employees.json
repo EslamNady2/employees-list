@@ -1,0 +1,156 @@
+{
+  "uuid": "49cbae3d-987e-40fe-906d-4fe5f689cef7",
+  "lastMigration": 24,
+  "name": "Employees",
+  "endpointPrefix": "api",
+  "latency": 300,
+  "port": 3001,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "2069fd34-f6ca-4163-8605-885ad93a7595",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "employees",
+      "responses": [
+        {
+          "uuid": "4e8474df-daa3-46ec-b194-250cf8eb538f",
+          "body": "[{\"id\": 1,\"name\": \"Employee 1\",\"status\": \"ADDED\"},{\"id\": 2,\"name\": \"Employee 2\",\"status\": \"IN-CHECK\"},{\"id\": 3,\"name\": \"Employee 3\",\"status\": \"ADDED\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": true,
+          "fallbackTo404": true,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "2bc00b79-a745-4b56-8bf9-9518309aee90",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "employees",
+      "responses": [
+        {
+          "uuid": "0dac7e16-85d6-41ba-b8ec-f4d2158caf24",
+          "body": "{\"id\": {{faker 'datatype.number'}},\"name\": \"{{body 'name'}}\",\"status\": \"ADDED\"}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "null",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a1b9bf4e-769a-4360-aed7-fe08608c79cd",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "employees/:employee_id",
+      "responses": [
+        {
+          "uuid": "8141fcb3-bd47-4ea5-9ab1-4bc5edf4ed58",
+          "body": "{\"id\": {{urlParam 'employee_id'}},\"status\": \"{{body 'status'}}\"}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "status",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    },
+    {
+      "key": "Accept",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

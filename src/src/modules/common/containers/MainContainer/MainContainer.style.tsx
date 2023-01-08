@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { colors } from "src/configs/themeData";
+import { colors } from "src/configs/theme";
 
 export const AppContainer = styled.div`
   background: ${colors.bodyColor};
