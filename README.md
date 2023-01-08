@@ -1,3 +1,9 @@
+# Getting Started with creating mocked api server
+- Download mockoon https://mockoon.com and install.
+- Click Open envireonment icon in the top left corner and choose employees.json file from project files.
+- Start Server.
+- Make sure to create a .env file duplicate to .env.example file found in the project files.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

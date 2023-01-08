@@ -1,7 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { colors } from "src/configs/theme";
 
 export const AppContainer = styled.div`
-  background: #f2f4f5;
+  background: ${colors.bodyColor};
   width: 100%;
   height: 100%;
   box-sizing: content-box;
